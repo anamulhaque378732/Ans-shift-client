@@ -8,9 +8,9 @@ import bannerImg3 from "../../../assets/banner/banner3.png";
 const Banner = () => {
   return (
     <Carousel autoPlay={true} infiniteLoop={true}>
-      <div className="relative ">
+      <div className="relative  ">
         <img src={bannerImg1} className="w-full" />
-        <div className="rounded-full gap-2  flex absolute sm:bottom-2 sm:left-2 bottom-10 left-10 shadow-lg transition">
+        <div className="rounded-full gap-2  flex absolute     bottom-20 left-10 shadow-lg transition">
           <button className="bg-secondary font-medium  hover:bg-blue-700 text-white p-2 rounded-full">
             Track your parcel
           </button>
@@ -23,7 +23,7 @@ const Banner = () => {
 
       <div className="relative ">
         <img src={bannerImg3} className="w-full" />
-        <div className="rounded-full gap-2  flex absolute bottom-10 left-10 shadow-lg transition">
+        <div className="rounded-full gap-2  flex absolute bottom-20 left-10 shadow-lg transition">
           <button className="bg-secondary font-medium  hover:bg-blue-700 text-white p-2 rounded-full">
             Track your parcel
           </button>
@@ -35,7 +35,7 @@ const Banner = () => {
       </div>
       <div className="relative ">
         <img src={bannerImg2} className="w-full" />
-        <div className="rounded-full gap-2  flex absolute bottom-10 left-10 shadow-lg transition">
+        <div className="rounded-full gap-2  flex absolute bottom-20 left-10 shadow-lg transition">
           <button className="bg-secondary font-medium  hover:bg-blue-700 text-white p-2 rounded-full">
             Track your parcel
           </button>

@@ -17,7 +17,7 @@ const Works = () => {
   }, []);
 
   return (
-    <section className="bg-base-300 md:py-10 py-2 rounded-xl">
+    <section className="bg-base-300 md:py-10 py-2 md:px-8 px-2  rounded-xl">
       <h1 className="text-4xl md:my-5 md:px-4 font-bold">How it works</h1>
       <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-2 md:gap-8">
         {works.map((work) => (
