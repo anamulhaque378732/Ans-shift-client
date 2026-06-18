@@ -1,18 +1,47 @@
+import { NavLink } from "react-router";
 import Logo from "../../../Components/Logo/Logo";
 
 const Footer = () => {
+  const links = (
+    <>
+      <li>
+        <NavLink>Services</NavLink>
+      </li>
+      <li>
+        <NavLink to="/coverage">Coverage</NavLink>
+      </li>
+      <li>
+        <NavLink>About Us</NavLink>
+      </li>
+
+      <li>
+        <NavLink>Pricing</NavLink>
+      </li>
+
+      <li>
+        <NavLink>Blog</NavLink>
+      </li>
+      <li>
+        <NavLink>Contact</NavLink>
+      </li>
+    </>
+  );
+
   return (
-    <footer className="footer footer-horizontal footer-center text-secondary   text-primary-content  p-10">
+    <footer className="footer bg-black footer-horizontal footer-center text-secondary   text-primary-content  p-10">
       <aside>
         <Logo></Logo>
         <p className="font-bold">
-          ACME Industries Ltd.
+          Enjoy fast, reliable parcel delivery with real-time tracking and zero
+          hassle. From personal packages to business shipments — we deliver on
+          time, every time.
           <br />
           Providing reliable tech since 1992
         </p>
         <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
       </aside>
       <nav>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
         <div className="grid grid-flow-col gap-4">
           <a>
             <svg
