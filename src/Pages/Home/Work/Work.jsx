@@ -9,7 +9,7 @@ const Work = ({ work }) => {
         src={bookingIcon}
         alt="Booking Icon"
       />
-      <h1 className="text-3xl text-primary font-bold p-1 m-1">{title}</h1>
+      <h1 className="text-3xl text-secondary font-bold p-1 m-1">{title}</h1>
       <p className="font-medium">{details}</p>
     </div>
   );
