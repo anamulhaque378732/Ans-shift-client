@@ -22,25 +22,27 @@ const brandsLogos = [
 
 const Brands = () => {
   return (
-    <Swiper
-      slidesPerView={4}
-      centeredSlides={true}
-      spaceBetween={30}
-      grabCursor={true}
-      loop={true}
-      autoplay={{
-        delay: 1500,
-        disableOnInteraction: false,
-      }}
-      modules={[Autoplay]}
-      className="mySwiper"
-    >
-      {brandsLogos.map((logo, idx) => (
-        <SwiperSlide key={idx}>
-          <img src={logo} alt="Brands Log" />{" "}
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="my-5 md:my-10 lg:my-16">
+      <Swiper
+        slidesPerView={4}
+        centeredSlides={true}
+        spaceBetween={30}
+        grabCursor={true}
+        loop={true}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        className="mySwiper"
+      >
+        {brandsLogos.map((logo, idx) => (
+          <SwiperSlide key={idx}>
+            <img src={logo} alt="Brands Log" />{" "}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 

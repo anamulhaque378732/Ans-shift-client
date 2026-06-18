@@ -28,7 +28,7 @@ const Footer = () => {
   );
 
   return (
-    <footer className="footer bg-black footer-horizontal footer-center text-secondary   text-primary-content  p-10">
+    <footer className="footer bg-black footer-horizontal rounded-xl footer-center text-secondary   text-primary-content  p-10">
       <aside>
         <Logo></Logo>
         <p className="font-bold">

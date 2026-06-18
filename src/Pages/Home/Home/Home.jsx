@@ -2,6 +2,7 @@ import Merchant from "../../Merchant/Merchant";
 import Banner from "../Banner/Banner";
 import Brands from "../Brands/Brands";
 import Reviews from "../Reviews/Reviews";
+import SafeDelivery from "../SafeDelivery/SafeDelivery";
 import Services from "../Services/Services";
 import Works from "../Work/Works";
 
@@ -14,6 +15,7 @@ const Home = () => {
       <Works></Works>
       <Services></Services>
       <Brands></Brands>
+      <SafeDelivery></SafeDelivery>
       <Merchant></Merchant>
       <Reviews reviewsPromise={reviewsPromise}></Reviews>
     </>
