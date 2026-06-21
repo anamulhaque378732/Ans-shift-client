@@ -54,15 +54,15 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link className="btn btn-ghost text-xl">
+        <div className="btn btn-ghost text-xl">
           <Logo></Logo>
-        </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to="/login">Signin</Link>
       </div>
     </div>
   );

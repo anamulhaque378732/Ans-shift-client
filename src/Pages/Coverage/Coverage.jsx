@@ -23,7 +23,7 @@ const Coverage = () => {
   };
 
   return (
-    <div>
+    <div className="md:my-10 lg:my-16 my-4">
       <h2 className="text-5xl md:my-10 my-2 font-bold text-center">
         Available in 64 districts
       </h2>
@@ -61,12 +61,12 @@ const Coverage = () => {
         </form>
       </div>
       {/* map */}
-      <div className=" border  rounded-2xl w-full h-[800px]">
+      <div className=" border  rounded-2xl w-full h-[700px]">
         <MapContainer
           center={position}
           zoom={8}
           scrollWheelZoom={false}
-          className="h-[800px]"
+          className="h-[700px]"
           ref={mapRef}
         >
           <TileLayer
