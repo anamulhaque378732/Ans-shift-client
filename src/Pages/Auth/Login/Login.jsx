@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/UseAuth";
 import GoogleLogin from "../SocialLogin/GoogleLogin";
 
@@ -9,13 +9,19 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const { signinUser } = useAuth();
+
+  const location = useLocation();
+
+  const navigate = useNavigate();
 
   const handleLogin = (data) => {
     const { email, password } = data;
     signinUser(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         console.log(error.message);

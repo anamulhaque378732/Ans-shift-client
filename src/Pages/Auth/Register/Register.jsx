@@ -1,24 +1,57 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/UseAuth";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import GoogleLogin from "../SocialLogin/GoogleLogin";
+import axios from "axios";
 
 const Register = () => {
-  // password =A123@mul
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const { registerUser } = useAuth();
+  const { registerUser, updateUserProfile } = useAuth();
+
+  const location = useLocation();
+
+  const navigate = useNavigate();
 
   const handleRegistration = (data) => {
-    const { email, password } = data;
+    const { email, password, name, photo } = data;
 
     registerUser(email, password)
       .then((result) => {
         console.log(result.user);
+
+        //1.  store the image in form data and get the photo url
+        const profileImage = photo[0];
+        const formData = new FormData();
+
+        // 2. send the photo to store and get hte url
+
+        formData.append("image", profileImage);
+        const imageApi_Url = `https://api.imgbb.com/1/upload?expiration=600&key= ${import.meta.env.VITE_image_host_key}`;
+
+        axios.post(imageApi_Url, formData).then((res) => {
+          console.log("After image upload", res.data.data.url);
+
+          // Update user profile to firebase
+
+          const userProfile = {
+            displayName: name,
+            photoURL: res.data.data.url,
+          };
+
+          updateUserProfile(userProfile)
+            .then(() => {
+              console.log("User profile updated done");
+              navigate(location?.state || "/");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
       })
       .catch((error) => {
         console.log(error.message);
@@ -37,6 +70,30 @@ const Register = () => {
         action=""
       >
         <fieldset className="fieldset">
+          {/* Name field */}
+          <label className="label">Name</label>
+
+          <input
+            type="text"
+            {...register("name", { required: true })}
+            className="input text-xl w-full"
+            placeholder=" Your Name"
+          />
+          {errors.name?.type === "required" && (
+            <p className="text-red-500"> Name is required</p>
+          )}
+          {/* image field */}
+          <label className="label">Photo</label>
+          <input
+            type="file"
+            {...register("photo", { required: true })}
+            className="file-input text-xl w-full"
+            placeholder="your image"
+          />
+          {errors.photo?.type === "required" && (
+            <p className="text-red-500"> Photo is required</p>
+          )}
+
           {/* email */}
           <label className="label">Email</label>
 
@@ -49,6 +106,7 @@ const Register = () => {
           {errors.email?.type === "required" && (
             <p className="text-red-500"> Email is required</p>
           )}
+
           {/* password */}
           <label className="label">Password</label>
 
@@ -81,14 +139,23 @@ const Register = () => {
           <div>
             <a className="link link-hover">Forgot password?</a>
           </div>
-          <button className="btn   mt-4 btn-primary text-black text-xl ">
+          <button
+            state={location.state}
+            className="btn 
+            mt-4 btn-primary
+             text-black text-xl "
+          >
             Register
           </button>
         </fieldset>
       </form>
       <p>
         Already have an account ? please login
-        <Link to="/login" className="btn my-1 text-green-600 ">
+        <Link
+          state={location.state}
+          to="/login"
+          className="btn my-1 text-green-600 "
+        >
           Login
         </Link>
       </p>

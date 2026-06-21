@@ -5,6 +5,8 @@ import Coverage from "../Pages/Coverage/Coverage";
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
+import PrivateRoutes from "./PrivateRoutes";
+import Raider from "../Pages/Raider/Raider";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ export const router = createBrowserRouter([
         Component: Coverage,
         loader: () => fetch("/servicesCenter.json").then((res) => res.json()),
         hydrateFallbackElement: <p>loading</p>,
+      },
+      {
+        path: "/raider",
+        element: (
+          <PrivateRoutes>
+            <Raider></Raider>
+          </PrivateRoutes>
+        ),
       },
     ],
   },
