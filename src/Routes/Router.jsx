@@ -7,6 +7,7 @@ import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import Raider from "../Pages/Raider/Raider";
+import SendParcel from "../Pages/SendParcels/SendParcel";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,16 @@ export const router = createBrowserRouter([
             <Raider></Raider>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/sendParcel",
+        element: (
+          <PrivateRoutes>
+            <SendParcel></SendParcel>
+          </PrivateRoutes>
+        ),
+        loader: () => fetch("/servicesCenter.json").then((res) => res.json()),
+        hydrateFallbackElement: <p>Loading</p>,
       },
     ],
   },
