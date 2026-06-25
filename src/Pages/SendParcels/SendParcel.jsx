@@ -1,6 +1,8 @@
 import { useForm, useWatch } from "react-hook-form";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAuth from "../../Hooks/UseAuth";
 
 const SendParcel = () => {
   const {
@@ -9,6 +11,9 @@ const SendParcel = () => {
     control,
     formState: { errors },
   } = useForm();
+  const { user } = useAuth();
+
+  const axiosSecure = useAxiosSecure();
 
   const serviceCenters = useLoaderData();
   const regionsDuplicate = serviceCenters.map((center) => center.region);
@@ -58,20 +63,26 @@ const SendParcel = () => {
 
     Swal.fire({
       title: "Agree with the cost?",
-      text: `You  will be charged! ${cost} TK`,
+      text: `You  will be charged  ${cost} TK`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: " I agree to pay!",
     }).then((result) => {
-      if (result.isConfirmed)
-        
-        // Swal.fire({
-        //   title: "Deleted!",
-        //   text: "Your file has been deleted.",
-        //   icon: "success",
-        // });
+      if (result.isConfirmed) {
+        // save the parcel info to the data base
+
+        axiosSecure.post("/parcels", data).then((res) => {
+          console.log("after saving parcel", res.data);
+        });
+
+        //  Swal.fire({
+        //    title: "Deleted!",
+        //    text: "Your file has been deleted.",
+        //    icon: "success",
+        //  });
+      }
     });
   };
 
@@ -147,6 +158,7 @@ const SendParcel = () => {
               <input
                 type="text"
                 {...register("senderName")}
+                defaultValue={user?.displayName}
                 className="input w-full font-medium"
                 placeholder="Sender name"
               />
@@ -158,6 +170,7 @@ const SendParcel = () => {
               <input
                 type="email"
                 {...register("senderEmail", { required: true })}
+                defaultValue={user?.email}
                 className="input w-full font-medium"
                 placeholder="Sender Email"
               />
