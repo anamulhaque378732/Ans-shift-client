@@ -31,7 +31,7 @@ const DashboardLayout = () => {
               </svg>
             </label>
             <div className="px-4 text-secondary text-xl font-medium">
-              Ans shift Dashboard
+              Ans shift
             </div>
           </nav>
           {/* Page content here */}

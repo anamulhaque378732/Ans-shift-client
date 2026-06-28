@@ -10,6 +10,9 @@ import Raider from "../Pages/Raider/Raider";
 import SendParcel from "../Pages/SendParcels/SendParcel";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import MyParcels from "../Pages/Dashboard/MyParcels/MyParcels";
+import Payment from "../Pages/Dashboard/MyParcels/Payment/Payment";
+import PaymentSuccess from "../Pages/Dashboard/MyParcels/Payment/PaymentSuccess";
+import PaymentCancelled from "../Pages/Dashboard/MyParcels/Payment/PaymentCancelled";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +73,18 @@ export const router = createBrowserRouter([
       {
         path: "myParcels",
         Component: MyParcels,
+      },
+      {
+        path: "payment/:parcelId",
+        Component: Payment,
+      },
+      {
+        path: "payment-success",
+        Component: PaymentSuccess,
+      },
+      {
+        path: "payment-cancelled",
+        Component: PaymentCancelled,
       },
     ],
   },

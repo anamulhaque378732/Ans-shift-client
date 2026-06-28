@@ -5,6 +5,7 @@ import { CiEdit } from "react-icons/ci";
 import { MdDeleteForever, MdOutlineSecurityUpdate } from "react-icons/md";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyParcels = () => {
   const { user } = useAuth();
@@ -59,7 +60,8 @@ const MyParcels = () => {
               <th></th>
               <th>Name</th>
               <th>Cost</th>
-              <th> Payment status</th>
+              <th> Payment </th>
+              <th> Delivery status</th>
               <th> Action</th>
             </tr>
           </thead>
@@ -68,8 +70,19 @@ const MyParcels = () => {
               <tr key={parcel._id}>
                 <th>{index + 1}</th>
                 <td> {parcel.parcelName}</td>
-                <td> {parcel.parcelWeight}</td>
-                <td>true</td>
+                <td> {parcel.cost}</td>
+                <td>
+                  {parcel.paymentStatus === "paid" ? (
+                    <span className="text-green-600"> Paid</span>
+                  ) : (
+                    <Link to={`/dashboard/payment/${parcel._id}`}>
+                      <button className="btn btn-primary btn-sm text-black">
+                        Pay
+                      </button>
+                    </Link>
+                  )}
+                </td>
+                <td> {parcel.deliveryStatus}</td>
                 <td className="">
                   <button
                     title="Edit"
