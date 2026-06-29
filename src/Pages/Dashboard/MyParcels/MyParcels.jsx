@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/UseAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { CiEdit } from "react-icons/ci";
+
 import { MdDeleteForever, MdOutlineSecurityUpdate } from "react-icons/md";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import Swal from "sweetalert2";
@@ -109,12 +109,6 @@ const MyParcels = () => {
                 </td>
                 <td> {parcel.deliveryStatus}</td>
                 <td className="">
-                  <button
-                    title="Edit"
-                    className="btn btn-square mr-1 hover:bg-secondary hover:text-white"
-                  >
-                    <CiEdit />
-                  </button>
                   <button
                     title="Update"
                     className="btn   btn-square mr-1 hover:bg-secondary hover:text-white"
