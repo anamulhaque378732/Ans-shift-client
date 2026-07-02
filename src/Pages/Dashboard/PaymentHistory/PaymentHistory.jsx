@@ -10,6 +10,7 @@ const PaymentHistory = () => {
     queryKey: ["payments", user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/payments?email=${user.email}`);
+
       return res.data;
     },
   });
@@ -30,6 +31,8 @@ const PaymentHistory = () => {
               <th>Amount</th>
               <th> Transaction Id </th>
 
+              <th> Paid time </th>
+
               <th> Action </th>
             </tr>
           </thead>
@@ -40,7 +43,7 @@ const PaymentHistory = () => {
                 <td> {payment.parcelName}</td>
                 <td> ${payment.amount} </td>
                 <td> {payment.transactionId} </td>
-
+                <td>{payment.paidAt}</td>
                 <td>
                   <button className="btn">View</button>
                 </td>
