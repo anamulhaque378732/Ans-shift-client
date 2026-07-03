@@ -84,9 +84,14 @@ const Navbar = () => {
             Sign out
           </button>
         ) : (
-          <Link to="/login" className="btn btn-primary text-black">
-            Signin
-          </Link>
+          <>
+            <Link to="/login" className="btn btn-primary text-black">
+              Sign in
+            </Link>
+            <Link to="/register" className="btn ml-2 btn-primary text-black">
+              Sign up
+            </Link>
+          </>
         )}
         <Link to="/raider" className="btn btn-primary text-black ml-2 ">
           Be a Raider

@@ -35,6 +35,7 @@ export const router = createBrowserRouter([
             <Raider></Raider>
           </PrivateRoutes>
         ),
+        loader: () => fetch("/servicesCenter.json").then((res) => res.json()),
       },
       {
         path: "/sendParcel",
