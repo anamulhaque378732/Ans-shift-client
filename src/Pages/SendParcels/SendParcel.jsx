@@ -45,6 +45,7 @@ const SendParcel = () => {
     const parcelWeight = parseFloat(data.parcelWeight);
 
     let cost = 0;
+    console.log(cost);
 
     if (isDocument) {
       cost = isSameDistrict ? 60 : 80;

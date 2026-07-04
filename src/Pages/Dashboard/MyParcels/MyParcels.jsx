@@ -61,8 +61,6 @@ const MyParcels = () => {
       paymentInfo,
     );
 
-    console.log(res.data.url);
-
     window.location.assign(res.data.url);
   };
 
