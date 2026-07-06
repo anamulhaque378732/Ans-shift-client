@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FaTrashAlt, FaUserCheck } from "react-icons/fa";
 import { IoPersonRemoveSharp } from "react-icons/io5";
 import Swal from "sweetalert2";
+import { FcViewDetails } from "react-icons/fc";
 
 const ApproveRaiders = () => {
   const axiosSecure = useAxiosSecure();
@@ -106,19 +107,27 @@ const ApproveRaiders = () => {
                 <td> {raider.district}</td>
                 <td>
                   <button
+                    title="View"
+                    // onClick={() => handleRaiderDelete(raider._id)}
+                    className="btn ml-2"
+                  >
+                    <FcViewDetails></FcViewDetails>
+                  </button>
+                  <button
                     onClick={() => handleApproval(raider)}
-                    title="accept"
+                    title="Accept"
                     className="btn"
                   >
                     <FaUserCheck />
                   </button>
                   <button
-                    title="reject"
+                    title="Reject"
                     onClick={() => handleRejection(raider)}
                     className="btn ml-2"
                   >
                     <IoPersonRemoveSharp />
                   </button>
+
                   <button
                     title="Trash"
                     onClick={() => handleRaiderDelete(raider._id)}

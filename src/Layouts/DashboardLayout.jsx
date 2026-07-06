@@ -1,5 +1,5 @@
 import { CiDeliveryTruck } from "react-icons/ci";
-import { FaCreditCard } from "react-icons/fa";
+import { FaCreditCard, FaUser } from "react-icons/fa";
 import { MdOutlineDirectionsBike } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
 
@@ -106,6 +106,18 @@ const DashboardLayout = () => {
                   <MdOutlineDirectionsBike />
                   <span className="is-drawer-close:hidden">
                     Approve raiders
+                  </span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/dashboard/usersManagement"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Users Management"
+                >
+                  <FaUser></FaUser>
+                  <span className="is-drawer-close:hidden">
+                    Users ManageMent
                   </span>
                 </NavLink>
               </li>
