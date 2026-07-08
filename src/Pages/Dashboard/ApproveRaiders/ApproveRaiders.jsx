@@ -75,7 +75,7 @@ const ApproveRaiders = () => {
   return (
     <div>
       <h2 className="text-5xl font-bold text-center text-secondary md:my-10 my-2 md:py-4 py-2">
-        Raiders pending approval {raiders.length}
+        Raiders pending approval
       </h2>
 
       <div className="overflow-x-auto">
