@@ -19,6 +19,8 @@ const ApproveRaiders = () => {
   const updateRaiderStatus = (raider, status) => {
     const updateInfo = { status: status, email: raider.email };
 
+    // musr ask for confermation procidure before updating the status of the raider
+
     axiosSecure.patch(`/raiders/${raider._id}`, updateInfo).then((res) => {
       if (res.data.modifiedCount) {
         refetch();
@@ -43,8 +45,6 @@ const ApproveRaiders = () => {
   // delete a raider
 
   const handleRaiderDelete = (id) => {
-    console.log(id);
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",

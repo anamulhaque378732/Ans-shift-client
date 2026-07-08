@@ -2,8 +2,11 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { FaCreditCard, FaUser } from "react-icons/fa";
 import { MdOutlineDirectionsBike } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
+import UseRole from "../Hooks/UseRole";
 
 const DashboardLayout = () => {
+  const { role } = UseRole();
+
   return (
     <>
       <div className="drawer lg:drawer-open max-w-7xl mx-auto">
@@ -97,6 +100,8 @@ const DashboardLayout = () => {
                   </span>
                 </NavLink>
               </li>
+              {role === "admin"}
+
               <li>
                 <NavLink
                   to="/dashboard/approveRaiders"
