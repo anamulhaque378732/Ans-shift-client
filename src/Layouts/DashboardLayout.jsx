@@ -6,6 +6,7 @@ import UseRole from "../Hooks/UseRole";
 
 const DashboardLayout = () => {
   const { role } = UseRole();
+console.log("dashboard",  role);
 
   return (
     <>
@@ -78,6 +79,7 @@ const DashboardLayout = () => {
               </li>
 
               {/* our dashboard links */}
+              {/* my parcel */}
               <li>
                 <NavLink
                   to="/dashboard/myParcels"
@@ -88,6 +90,8 @@ const DashboardLayout = () => {
                   <span className="is-drawer-close:hidden"> My parcel</span>
                 </NavLink>
               </li>
+
+              {/* payment history */}
               <li>
                 <NavLink
                   to="/dashboard/paymentHistory"
@@ -100,32 +104,36 @@ const DashboardLayout = () => {
                   </span>
                 </NavLink>
               </li>
-              {role === "admin"}
-
-              <li>
-                <NavLink
-                  to="/dashboard/approveRaiders"
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip=" Approve Raider"
-                >
-                  <MdOutlineDirectionsBike />
-                  <span className="is-drawer-close:hidden">
-                    Approve raiders
-                  </span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/dashboard/usersManagement"
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Users Management"
-                >
-                  <FaUser></FaUser>
-                  <span className="is-drawer-close:hidden">
-                    Users ManageMent
-                  </span>
-                </NavLink>
-              </li>
+              {role === "admin" && (
+                <>
+                  {/* approve raider */}
+                  <li>
+                    <NavLink
+                      to="/dashboard/approveRaiders"
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip=" Approve Raider"
+                    >
+                      <MdOutlineDirectionsBike />
+                      <span className="is-drawer-close:hidden">
+                        Approve raiders
+                      </span>
+                    </NavLink>
+                  </li>
+                  {/* user management */}
+                  <li>
+                    <NavLink
+                      to="/dashboard/usersManagement"
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Users Management"
+                    >
+                      <FaUser></FaUser>
+                      <span className="is-drawer-close:hidden">
+                        Users ManageMent
+                      </span>
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
