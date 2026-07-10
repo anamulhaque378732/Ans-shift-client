@@ -78,6 +78,8 @@ const MyParcels = () => {
               <th>Name</th>
               <th>Cost</th>
               <th> Payment </th>
+              <th> Tracking Id </th>
+
               <th> Delivery status</th>
               <th> Action</th>
             </tr>
@@ -105,6 +107,7 @@ const MyParcels = () => {
                     </button>
                   )}
                 </td>
+                <td> {parcel.trackingId} </td>
                 <td> {parcel.deliveryStatus}</td>
                 <td className="">
                   <button

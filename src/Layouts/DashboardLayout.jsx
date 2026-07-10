@@ -3,10 +3,10 @@ import { FaCreditCard, FaUser } from "react-icons/fa";
 import { MdOutlineDirectionsBike } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
 import UseRole from "../Hooks/UseRole";
+import { RiEBike2Fill } from "react-icons/ri";
 
 const DashboardLayout = () => {
   const { role } = UseRole();
-console.log("dashboard",  role);
 
   return (
     <>
@@ -116,6 +116,19 @@ console.log("dashboard",  role);
                       <MdOutlineDirectionsBike />
                       <span className="is-drawer-close:hidden">
                         Approve raiders
+                      </span>
+                    </NavLink>
+                  </li>
+                  {/* assign raiders */}
+                  <li>
+                    <NavLink
+                      to="/dashboard/assignRaider"
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Assign Raider"
+                    >
+                      <RiEBike2Fill />
+                      <span className="is-drawer-close:hidden">
+                        Assign raiders
                       </span>
                     </NavLink>
                   </li>
