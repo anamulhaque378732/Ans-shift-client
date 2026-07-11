@@ -42,6 +42,8 @@ const ApproveRaiders = () => {
     updateRaiderStatus(raider, "rejected");
   };
 
+  // open assign raider modal
+
   // delete a raider
 
   const handleRaiderDelete = (id) => {
@@ -86,7 +88,8 @@ const ApproveRaiders = () => {
               <th></th>
               <th>Name</th>
               <th>Email</th>
-              <th>Status</th>
+              <th> Application Status</th>
+              <th> Work Status</th>
               <th>District</th>
               <th>Action</th>
             </tr>
@@ -104,6 +107,7 @@ const ApproveRaiders = () => {
                     {raider.status}
                   </p>
                 </td>
+                <td> {raider.workStatus}</td>
                 <td> {raider.district}</td>
                 <td>
                   <button

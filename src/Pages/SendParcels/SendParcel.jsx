@@ -45,7 +45,6 @@ const SendParcel = () => {
     const parcelWeight = parseFloat(data.parcelWeight);
 
     let cost = 0;
-    console.log(cost);
 
     if (isDocument) {
       cost = isSameDistrict ? 60 : 80;
@@ -196,7 +195,7 @@ const SendParcel = () => {
                   defaultValue="Pick a Region"
                   className="select w-full"
                 >
-                  <option disabled={true} className="">
+                  <option disabled={true} value="" className="">
                     Pick a Region
                   </option>
                   {regions.map((reg, idx) => (
@@ -218,7 +217,7 @@ const SendParcel = () => {
                   defaultValue="Pick a districts"
                   className="select w-full"
                 >
-                  <option disabled={true} className="">
+                  <option disabled={true} value="" className="">
                     Pick a Region
                   </option>
                   {districtsByRegion(senderRegion).map((reg, idx) => (
