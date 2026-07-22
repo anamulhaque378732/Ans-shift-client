@@ -1,5 +1,5 @@
 import { CiDeliveryTruck } from "react-icons/ci";
-import { FaCreditCard, FaUser } from "react-icons/fa";
+import { FaCreditCard, FaTasks, FaUser } from "react-icons/fa";
 import { MdOutlineDirectionsBike } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
 import UseRole from "../Hooks/UseRole";
@@ -79,6 +79,7 @@ const DashboardLayout = () => {
               </li>
 
               {/* our dashboard links */}
+
               {/* my parcel */}
               <li>
                 <NavLink
@@ -92,6 +93,7 @@ const DashboardLayout = () => {
               </li>
 
               {/* payment history */}
+
               <li>
                 <NavLink
                   to="/dashboard/paymentHistory"
@@ -104,6 +106,23 @@ const DashboardLayout = () => {
                   </span>
                 </NavLink>
               </li>
+              {role === "raider" && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/dashboard/assignedDeliveries"
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Assigned deliveries"
+                    >
+                      <FaTasks />
+                      <span className="is-drawer-close:hidden">
+                        Assigned Deliveries
+                      </span>
+                    </NavLink>
+                  </li>
+                </>
+              )}
+
               {role === "admin" && (
                 <>
                   {/* approve raider */}
@@ -119,6 +138,7 @@ const DashboardLayout = () => {
                       </span>
                     </NavLink>
                   </li>
+
                   {/* assign raiders */}
                   <li>
                     <NavLink

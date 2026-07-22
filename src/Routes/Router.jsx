@@ -18,6 +18,8 @@ import ApproveRaiders from "../Pages/Dashboard/ApproveRaiders/ApproveRaiders";
 import UserManagement from "../Pages/Dashboard/UserManagement/UserManagement";
 import AdminRoute from "./AdminRoute";
 import AssignRaider from "../Pages/Dashboard/AssignRaider/AssignRaider";
+import AssignedDeliveries from "../Pages/Dashboard/AssignedDeliveries/AssignedDeliveries";
+import RaidersRoute from "./RaidersRoute";
 
 export const router = createBrowserRouter([
   {
@@ -97,6 +99,20 @@ export const router = createBrowserRouter([
         path: "payment-cancelled",
         Component: PaymentCancelled,
       },
+
+      // raider related routes
+
+      {
+        path: "assignedDeliveries",
+        element: (
+          <RaidersRoute>
+            <AssignedDeliveries></AssignedDeliveries>
+          </RaidersRoute>
+        ),
+      },
+
+      // admin related routes
+
       {
         path: "approveRaiders",
 
