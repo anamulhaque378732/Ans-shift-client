@@ -3,7 +3,10 @@ import { FaCreditCard, FaTasks, FaUser } from "react-icons/fa";
 import { MdOutlineDirectionsBike } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
 import UseRole from "../Hooks/UseRole";
+
 import { RiEBike2Fill } from "react-icons/ri";
+
+import { SiGoogletasks } from "react-icons/si";
 
 const DashboardLayout = () => {
   const { role } = UseRole();
@@ -14,6 +17,7 @@ const DashboardLayout = () => {
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Navbar */}
+
           <nav className="navbar w-full bg-base-300">
             <label
               htmlFor="my-drawer-4"
@@ -21,6 +25,7 @@ const DashboardLayout = () => {
               className="btn btn-square btn-ghost"
             >
               {/* Sidebar toggle icon */}
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -40,7 +45,9 @@ const DashboardLayout = () => {
               Ans shift
             </div>
           </nav>
+
           {/* Page content here */}
+
           <Outlet></Outlet>
         </div>
 
@@ -52,8 +59,10 @@ const DashboardLayout = () => {
           ></label>
           <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
             {/* Sidebar content here */}
+
             <ul className="menu w-full grow gap-2">
               {/* List item */}
+
               <li>
                 <Link
                   to="/"
@@ -61,6 +70,7 @@ const DashboardLayout = () => {
                   data-tip="Homepage"
                 >
                   {/* Home icon */}
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -106,6 +116,8 @@ const DashboardLayout = () => {
                   </span>
                 </NavLink>
               </li>
+
+              {/* raider  */}
               {role === "raider" && (
                 <>
                   <li>
@@ -120,12 +132,25 @@ const DashboardLayout = () => {
                       </span>
                     </NavLink>
                   </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/completedDeliveries"
+                      className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                      data-tip="Completed deliveries"
+                    >
+                      <SiGoogletasks></SiGoogletasks>
+                      <span className="is-drawer-close:hidden">
+                        completed Deliveries
+                      </span>
+                    </NavLink>
+                  </li>
                 </>
               )}
 
               {role === "admin" && (
                 <>
                   {/* approve raider */}
+
                   <li>
                     <NavLink
                       to="/dashboard/approveRaiders"
@@ -140,6 +165,7 @@ const DashboardLayout = () => {
                   </li>
 
                   {/* assign raiders */}
+
                   <li>
                     <NavLink
                       to="/dashboard/assignRaider"
@@ -152,7 +178,9 @@ const DashboardLayout = () => {
                       </span>
                     </NavLink>
                   </li>
+
                   {/* user management */}
+
                   <li>
                     <NavLink
                       to="/dashboard/usersManagement"

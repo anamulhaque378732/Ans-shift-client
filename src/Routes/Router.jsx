@@ -20,6 +20,7 @@ import AdminRoute from "./AdminRoute";
 import AssignRaider from "../Pages/Dashboard/AssignRaider/AssignRaider";
 import AssignedDeliveries from "../Pages/Dashboard/AssignedDeliveries/AssignedDeliveries";
 import RaidersRoute from "./RaidersRoute";
+import CompletedDeliveries from "../Pages/Dashboard/CompletedDeliveries/CompletedDeliveries";
 
 export const router = createBrowserRouter([
   {
@@ -107,6 +108,14 @@ export const router = createBrowserRouter([
         element: (
           <RaidersRoute>
             <AssignedDeliveries></AssignedDeliveries>
+          </RaidersRoute>
+        ),
+      },
+      {
+        path: "completedDeliveries",
+        element: (
+          <RaidersRoute>
+            <CompletedDeliveries />
           </RaidersRoute>
         ),
       },

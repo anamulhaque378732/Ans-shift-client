@@ -13,6 +13,7 @@ const PaymentHistory = () => {
 
       return res.data;
     },
+    enabled: !!user?.email,
   });
 
   return (
@@ -30,9 +31,7 @@ const PaymentHistory = () => {
               <th> Name</th>
               <th>Amount</th>
               <th> Transaction Id </th>
-
               <th> Paid time </th>
-
               <th> Action </th>
             </tr>
           </thead>

@@ -31,16 +31,6 @@ const Navbar = () => {
           </li>
         </>
       )}
-      <li>
-        <NavLink>Pricing</NavLink>
-      </li>
-
-      <li>
-        <NavLink>Blog</NavLink>
-      </li>
-      <li>
-        <NavLink>Contact</NavLink>
-      </li>
     </>
   );
 
