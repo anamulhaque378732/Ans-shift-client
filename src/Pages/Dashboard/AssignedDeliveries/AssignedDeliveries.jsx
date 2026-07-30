@@ -23,6 +23,7 @@ const AssignedDeliveries = () => {
   const handleAcceptDeliveryStatusUpdate = (parcel, status) => {
     const statusInfo = {
       deliveryStatus: status,
+      raiderId: parcel.raiderId,
     };
     let message = `Parcel status is updated with ${status.split("_").join(" ")} `;
     axiosSecure
