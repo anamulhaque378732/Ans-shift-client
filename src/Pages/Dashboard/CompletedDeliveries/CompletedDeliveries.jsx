@@ -27,8 +27,6 @@ const CompletedDeliveries = () => {
     }
   };
 
-  console.log(parcels);
-
   return (
     <div>
       <h2 className="text-4xl font-bold text-center md:my-6 md:py-4 my-2 py-2 text-primary">
@@ -56,10 +54,8 @@ const CompletedDeliveries = () => {
                 <td> {parcel.cost} </td>
                 <td> {calculatePayout(parcel)}</td>
                 <td>
-                  {" "}
                   <button className="btn btn-primary text-black ">
-                    {" "}
-                    Cashout{" "}
+                    Cashout
                   </button>
                 </td>
               </tr>

@@ -21,6 +21,7 @@ import AssignRaider from "../Pages/Dashboard/AssignRaider/AssignRaider";
 import AssignedDeliveries from "../Pages/Dashboard/AssignedDeliveries/AssignedDeliveries";
 import RaidersRoute from "./RaidersRoute";
 import CompletedDeliveries from "../Pages/Dashboard/CompletedDeliveries/CompletedDeliveries";
+import ParcelTrack from "../Pages/ParcelTrack/ParcelTrack";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ export const router = createBrowserRouter([
         loader: () => fetch("/servicesCenter.json").then((res) => res.json()),
         hydrateFallbackElement: <p>loading</p>,
       },
+
+      {
+        path: "parcelTrack/:trackingId",
+        Component: ParcelTrack,
+      },
+
       {
         path: "/raider",
         element: (
@@ -57,6 +64,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/",
     Component: AuthLayout,

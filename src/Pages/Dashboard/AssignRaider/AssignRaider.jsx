@@ -47,6 +47,7 @@ const AssignRaider = () => {
       raiderEmail: raider.email,
       raiderName: raider.name,
       parcelId: selectedParcel._id,
+      trackingId: selectedParcel.trackingId,
     };
 
     axiosSecure

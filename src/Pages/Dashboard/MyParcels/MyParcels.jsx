@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { MdDeleteForever, MdOutlineSecurityUpdate } from "react-icons/md";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 // import { Link } from "react-router";
 
 const MyParcels = () => {
@@ -107,7 +108,11 @@ const MyParcels = () => {
                     </button>
                   )}
                 </td>
-                <td> {parcel.trackingId} </td>
+                <td>
+                  <Link to={`/parcelTrack/${parcel.trackingId}`}>
+                    {parcel.trackingId}
+                  </Link>
+                </td>
                 <td> {parcel.deliveryStatus}</td>
                 <td className="">
                   <button

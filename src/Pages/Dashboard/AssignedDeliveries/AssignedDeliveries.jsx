@@ -24,8 +24,11 @@ const AssignedDeliveries = () => {
     const statusInfo = {
       deliveryStatus: status,
       raiderId: parcel.raiderId,
+      trackingId: parcel.trackingId,
     };
+
     let message = `Parcel status is updated with ${status.split("_").join(" ")} `;
+
     axiosSecure
       .patch(`/parcels/${parcel._id}/status`, statusInfo)
       .then((res) => {
