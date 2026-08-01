@@ -6,7 +6,6 @@ import { MdDeleteForever, MdOutlineSecurityUpdate } from "react-icons/md";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
-// import { Link } from "react-router";
 
 const MyParcels = () => {
   const { user } = useAuth();
@@ -55,6 +54,7 @@ const MyParcels = () => {
       parcelId: parcel._id,
       senderEmail: parcel.senderEmail,
       parcelName: parcel.parcelName,
+      trackingId: parcel.trackingId,
     };
 
     const res = await axiosSecure.post(
