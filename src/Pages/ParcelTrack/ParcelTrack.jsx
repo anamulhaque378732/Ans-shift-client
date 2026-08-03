@@ -22,7 +22,6 @@ const ParcelTrack = () => {
         Track Your package : {trackingId}
       </h2>
 
-      <p> Logs So far : {trackings.length}</p>
       <ul className="timeline timeline-vertical">
         {trackings.map((log) => (
           <li key={log._id}>

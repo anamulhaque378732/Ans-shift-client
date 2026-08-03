@@ -22,11 +22,16 @@ import AssignedDeliveries from "../Pages/Dashboard/AssignedDeliveries/AssignedDe
 import RaidersRoute from "./RaidersRoute";
 import CompletedDeliveries from "../Pages/Dashboard/CompletedDeliveries/CompletedDeliveries";
 import ParcelTrack from "../Pages/ParcelTrack/ParcelTrack";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
+import About from "../Pages/About/About";
+import ErrorElement from "../Pages/ErrorPage/ErrorElement";
+import Loading from "../Components/Loading/Loading";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: RootLayouts,
+    errorElement: <ErrorElement></ErrorElement>,
     children: [
       { index: true, Component: Home },
       {
@@ -34,7 +39,7 @@ export const router = createBrowserRouter([
 
         Component: Coverage,
         loader: () => fetch("/servicesCenter.json").then((res) => res.json()),
-        hydrateFallbackElement: <p>loading</p>,
+        hydrateFallbackElement: <Loading />,
       },
 
       {
@@ -50,7 +55,7 @@ export const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: () => fetch("/servicesCenter.json").then((res) => res.json()),
-        hydrateFallbackElement: <p>loading</p>,
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/sendParcel",
@@ -60,8 +65,10 @@ export const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: () => fetch("/servicesCenter.json").then((res) => res.json()),
-        hydrateFallbackElement: <p>Loading</p>,
+        hydrateFallbackElement: <Loading />,
       },
+
+      { path: "/about", Component: About },
     ],
   },
 
@@ -88,6 +95,10 @@ export const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     children: [
+      {
+        index: true,
+        Component: DashboardHome,
+      },
       {
         path: "myParcels",
         Component: MyParcels,

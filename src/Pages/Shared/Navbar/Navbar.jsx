@@ -35,10 +35,13 @@ const Navbar = () => {
           <li>
             <NavLink to="/dashboard/myParcels"> My Parcels</NavLink>
           </li>
+          <li>
+            <NavLink to="/dashboard"> Dashboard</NavLink>
+          </li>
         </>
       )}
       <li>
-        <NavLink to="/">About us</NavLink>
+        <NavLink to="/about">About us</NavLink>
       </li>
     </>
   );
@@ -80,15 +83,15 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <button onClick={handleLogout} className="btn btn-secondary ">
-            Sign out
+            Logout
           </button>
         ) : (
           <>
             <Link to="/login" className="btn btn-primary text-black">
-              Sign in
+              Login
             </Link>
             <Link to="/register" className="btn ml-2 btn-primary text-black">
-              Sign up
+              Register
             </Link>
           </>
         )}

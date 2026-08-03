@@ -3,6 +3,7 @@ import { FaCreditCard, FaTasks, FaUser } from "react-icons/fa";
 import { MdOutlineDirectionsBike } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
 import UseRole from "../Hooks/UseRole";
+import logoImg from "../assets/logo.png";
 
 import { RiEBike2Fill } from "react-icons/ri";
 
@@ -42,7 +43,7 @@ const DashboardLayout = () => {
               </svg>
             </label>
             <div className="px-4 text-secondary text-xl font-medium">
-              Ans shift
+              Ans shift Dashboard
             </div>
           </nav>
 
@@ -57,17 +58,23 @@ const DashboardLayout = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
+
           <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
             {/* Sidebar content here */}
 
             <ul className="menu w-full grow gap-2">
               {/* List item */}
+              <li>
+                <Link to="/">
+                  <img src={logoImg} alt="Logo" />
+                </Link>
+              </li>
 
               <li>
                 <Link
-                  to="/"
+                  to="/dashboard"
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Homepage"
+                  data-tip="Dashboard  Homepage"
                 >
                   {/* Home icon */}
 
@@ -84,7 +91,9 @@ const DashboardLayout = () => {
                     <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
                     <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                   </svg>
-                  <span className="is-drawer-close:hidden">Homepage</span>
+                  <span className="is-drawer-close:hidden">
+                    Dashboard Homepage
+                  </span>
                 </Link>
               </li>
 
