@@ -12,13 +12,15 @@ const Coverage = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+
     const location = e.target.location.value;
+
     const district = servicesCenter.find((cen) =>
       cen.district.toLowerCase().includes(location.toLowerCase()),
     );
     if (district) {
       const coord = [district.latitude, district.longitude];
-      mapRef.current.flyTo(coord, 15);
+      mapRef.current.flyTo(coord, 14);
     }
   };
 
@@ -60,7 +62,9 @@ const Coverage = () => {
           <button className="btn ml-2">Search</button>
         </form>
       </div>
+
       {/* map */}
+
       <div className=" border  rounded-2xl w-full h-[700px]">
         <MapContainer
           center={position}
@@ -77,7 +81,7 @@ const Coverage = () => {
           {servicesCenter.map((center, index) => (
             <Marker key={index} position={[center.latitude, center.longitude]}>
               <Popup>
-                <strong>{center.district} </strong> <br /> Service Area{" "}
+                <strong>{center.district} </strong> <br /> Service Area
                 {center.covered_area.join(", ")}
               </Popup>
             </Marker>

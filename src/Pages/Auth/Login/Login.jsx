@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/UseAuth";
 import GoogleLogin from "../SocialLogin/GoogleLogin";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const {
@@ -20,11 +21,23 @@ const Login = () => {
     const { email, password } = data;
     signinUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful!",
+          text: `Welcome back, ${result.user.displayName || "User"}!`,
+          timer: 2000,
+          showConfirmButton: false,
+        });
         navigate(location?.state || "/");
       })
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed!",
+          text: error.message,
+          confirmButtonText: "Try Again",
+          confirmButtonColor: "#d33",
+        });
       });
   };
 

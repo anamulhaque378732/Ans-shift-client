@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router";
 import Logo from "../../../Components/Logo/Logo";
 import useAuth from "../../../Hooks/UseAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -9,20 +10,25 @@ const Navbar = () => {
     logOut()
       .then()
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Logout Failed!",
+          text: `${error.message}`,
+        });
       });
   };
 
   const links = (
     <>
       <li>
-        <NavLink>Services</NavLink>
+        <NavLink to="/">Services</NavLink>
       </li>
       <li>
-        <NavLink to="/coverage">Coverage</NavLink>
+        <NavLink to="/coverage">Coverage Areas</NavLink>
       </li>
+
       <li>
-        <NavLink to="/sendParcel">Send Parcel</NavLink>
+        <NavLink to="/sendParcel">Send a Parcel</NavLink>
       </li>
       {user && (
         <>
@@ -31,6 +37,9 @@ const Navbar = () => {
           </li>
         </>
       )}
+      <li>
+        <NavLink to="/">About us</NavLink>
+      </li>
     </>
   );
 

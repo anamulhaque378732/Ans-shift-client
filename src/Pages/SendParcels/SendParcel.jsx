@@ -131,7 +131,7 @@ const SendParcel = () => {
             <label className="label text-xl font-medium">Parcel Name</label>
             <input
               type="text"
-              {...register("parcelName")}
+              {...register("parcelName", { required: true })}
               className="input w-full"
               placeholder="Parcel name"
             />
@@ -142,10 +142,14 @@ const SendParcel = () => {
             </label>
             <input
               type="number"
-              {...register("parcelWeight")}
+              {...register("parcelWeight", { required: true })}
               className="input w-full"
               placeholder="Parcel weight"
             />
+
+            {errors.parcelWeight?.type === "required" && (
+              <p className="text-red-500"> Parcel weight is requered </p>
+            )}
           </fieldset>
         </div>
 
@@ -156,7 +160,6 @@ const SendParcel = () => {
           <div>
             <fieldset className="fieldset">
               <h4 className="text-2xl mt-2 pt-2 font-medium">Sender details</h4>
-
               {/* Sender name */}
               <label className="label mt-2 text-xl font-medium">
                 Sender Name
@@ -168,7 +171,6 @@ const SendParcel = () => {
                 className="input w-full font-medium"
                 placeholder="Sender name"
               />
-
               {/* Sender email */}
               <label className="label mt-2 text-xl font-medium">
                 Sender Email
@@ -180,12 +182,10 @@ const SendParcel = () => {
                 className="input w-full font-medium"
                 placeholder="Sender Email"
               />
-
               {errors.email?.type === "required" && (
                 <p className="text-red-500"> Email is required</p>
               )}
               {/* sender region */}
-
               <fieldset className="fieldset">
                 <legend className="fieldset-legend text-xl">
                   Sender Regions
@@ -205,9 +205,7 @@ const SendParcel = () => {
                   ))}
                 </select>
               </fieldset>
-
               {/* sender districts */}
-
               <fieldset className="fieldset">
                 <legend className="fieldset-legend text-xl">
                   Sender districts
@@ -227,33 +225,33 @@ const SendParcel = () => {
                   ))}
                 </select>
               </fieldset>
-
               {/* Sender address */}
-
               <label className="label mt-4  text-xl font-medium">
                 Sender Address
               </label>
               <input
                 type="text"
-                {...register("senderAddress")}
+                {...register("senderAddress", { required: true })}
                 className="input w-full"
                 placeholder="Sender address"
               />
-
+              {errors.senderAddress?.type === "required" && (
+                <p className="text-red-500"> Sender address is Required</p>
+              )}
               {/* sender phone number */}
-
               <label className="label mt-4  text-xl font-medium">
                 Sender phone number
               </label>
               <input
                 type="number"
-                {...register("senderPhoneNumber")}
+                {...register("senderPhoneNumber", { required: true })}
                 className="input w-full"
                 placeholder="Sender phone number"
               />
-
+              {errors.senderPhoneNumber?.type === "required" && (
+                <p className="text-red-500"> Sender phone number is Required</p>
+              )}
               {/* Pickup instruction */}
-
               <label className=" label text-xl mt-4">Pickup instruction</label>
               <textarea
                 {...register("pickupInstruction")}
@@ -336,7 +334,6 @@ const SendParcel = () => {
                   </option>
                   {districtsByRegion(receiverRegion).map((dis, idx) => (
                     <option value={dis} key={idx}>
-                      {" "}
                       {dis}
                     </option>
                   ))}
@@ -350,10 +347,13 @@ const SendParcel = () => {
               </label>
               <input
                 type="text"
-                {...register("receiverAddress")}
+                {...register("receiverAddress", { required: true })}
                 className="input w-full"
                 placeholder="Receiver address"
               />
+              {errors.receiverAddress?.type === "required" && (
+                <p className="text-red-500"> Receiver address is Required</p>
+              )}
 
               {/*Receiver  phone number */}
 
@@ -362,10 +362,17 @@ const SendParcel = () => {
               </label>
               <input
                 type="number"
-                {...register("receiverPhoneNumber")}
+                {...register("receiverPhoneNumber", { required: true })}
                 className="input w-full"
                 placeholder="Receiver phone number"
               />
+
+              {errors.receiverPhoneNumber?.type === "required" && (
+                <p className="text-red-500">
+                  Receiver Phone number is Required
+                </p>
+              )}
+
               {/* Pickup instruction */}
 
               <label className=" label text-xl mt-4">

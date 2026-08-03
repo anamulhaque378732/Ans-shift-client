@@ -4,6 +4,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import bannerImg1 from "../../../assets/banner/banner1.png";
 import bannerImg2 from "../../../assets/banner/banner2.png";
 import bannerImg3 from "../../../assets/banner/banner3.png";
+import { Link } from "react-router";
 
 const Banner = () => {
   return (
@@ -40,9 +41,11 @@ const Banner = () => {
             Track your parcel
           </button>
           <GoArrowUpRight className="mt-2 bg-secondary text-white p-4 rounded-full mx-1" />
-          <button className="text-secondary font-medium   hover:bg-blue-500   p-2 rounded-full">
-            Be a Raider
-          </button>
+          <Link to="/raider">
+            <button className="text-secondary font-medium   hover:bg-blue-500   p-2 rounded-full">
+              Be a Raider
+            </button>
+          </Link>
         </div>
       </div>
     </Carousel>

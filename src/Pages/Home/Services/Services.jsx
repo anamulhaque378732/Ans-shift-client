@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Service from "./Service";
+import Swal from "sweetalert2";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -10,7 +11,13 @@ const Services = () => {
         const data = await res.json();
         setServices(data);
       } catch (error) {
-        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text:
+            error.message || "Something went wrong while fetching services!",
+          confirmButtonColor: "#d33",
+        });
       }
     };
     loadServices();

@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/UseAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const GoogleLogin = () => {
   const { googleLogin } = useAuth();
@@ -21,11 +22,21 @@ const GoogleLogin = () => {
         };
 
         axiosSecure.post("/users", userInfo).then((res) => {
-          console.log("user data has been store", res.user);
+          Swal.fire({
+            icon: "success",
+            title: "Welcome!",
+            text: `Logged in successfully as ${res.user.displayName || "User"}`,
+            timer: 1500,
+            showConfirmButton: false,
+          });
         });
       })
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Database Error!",
+          text: ` ${error.message}`,
+        });
       });
   };
 

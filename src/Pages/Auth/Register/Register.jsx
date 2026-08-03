@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import GoogleLogin from "../SocialLogin/GoogleLogin";
 import axios from "axios";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {
@@ -45,7 +46,13 @@ const Register = () => {
 
           axiosSecure.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
-              console.log("user created in the database");
+              Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "User info saved to database successfully!",
+                timer: 1500,
+                showConfirmButton: false,
+              });
             }
           });
           // Update user profile to firebase
@@ -60,12 +67,20 @@ const Register = () => {
               navigate(location?.state || "/");
             })
             .catch((error) => {
-              console.log(error);
+              Swal.fire({
+                icon: "error",
+                title: "Profile Update Failed!",
+                text: error.message,
+              });
             });
         });
       })
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Database Error!",
+          text: ` ${error.message}`,
+        });
       });
   };
 
