@@ -66,7 +66,6 @@ const About = () => {
             you deliver with confidence.
           </p>
           <h2 className="text-5xl font-bold  md:my-6 my-2 md:py-4 py-2">
-            {" "}
             Our services
           </h2>
           <div className="grid md:grid-cols-2 my-4  lg:grid-cols-3 gap-6">
