@@ -48,6 +48,16 @@ Welcome to the frontend web application of **Ans Shift**, a modern and feature-r
 - **Popups & Alerts:** SweetAlert2
 
 ---
+## 💻 Local Setup & Installation
+
+Follow these steps to run the frontend application locally on your machine:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/anamulhaque378732/ans-shift-client.git](https://github.com/anamulhaque378732/ans-shift-client.git)
+   cd ans-shift-client
+
+
 
 ## ⚙️ Environment Variables Setup
 
